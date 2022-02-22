@@ -52,6 +52,7 @@ room_session = ""
 ses = False
 index = str(link).find('sesskey')
 while index != len(str(link)):
+    index += 1
     if str(link)[index] == '&':
         break
     if str(link)[index] == '=':
@@ -59,6 +60,33 @@ while index != len(str(link)):
         continue
     if ses:
         room_session += str(link)[index]
+
+# print(room_session)
+
+index = 0
+quote_count = 0
+vclass_link = ""
+
+while index != len(str(link)):
     index += 1
-print(link)
-print(room_session)
+    if str(link)[index] == '\'':
+        quote_count += 1
+        index += 1
+    if quote_count == 2:
+        break
+    if quote_count == 1:
+        vclass_link += str(link)[index]
+
+# print(vclass_link)
+
+while True:
+    try:
+        result = session_req.get(vclass_link)
+        break
+    except:
+        error = 0
+        print('Error')
+        time.sleep(10)
+
+
+print(result.url + '&proto=true')

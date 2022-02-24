@@ -90,6 +90,6 @@ while True:
         time.sleep(10)
 
 
-print(result.url + '&proto=true')
+web_prompt_lnk = result.url + '&proto=true'
 
-webbrowser.open(result.url + '&proto=true')
+webbrowser.open(web_prompt_lnk)

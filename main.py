@@ -1,6 +1,7 @@
 import time
 import urllib3
 import requests
+import webbrowser
 from bs4 import BeautifulSoup
 
 urllib3.disable_warnings()
@@ -90,3 +91,5 @@ while True:
 
 
 print(result.url + '&proto=true')
+
+webbrowser.open(result.url + '&proto=true')

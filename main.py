@@ -1,6 +1,5 @@
 import time
 import urllib3
-import getpass
 import requests
 import webbrowser
 from bs4 import BeautifulSoup
@@ -13,8 +12,7 @@ session_req = requests.session()
 print('Hi')
 
 username = input('Username: ')
-password = getpass.getpass(prompt='Password: ')
-# password = input('Password: ')
+password = input('Password: ')
 address = input('Course Online Room Entry Page: ')
 
 login_request = None
@@ -92,6 +90,6 @@ while True:
         time.sleep(10)
 
 
-# print(result.url + '&proto=true')
+web_prompt_lnk = result.url + '&proto=true'
 
-webbrowser.open(result.url + '&proto=true')
+webbrowser.open(web_prompt_lnk)
